@@ -8,26 +8,31 @@
                   <li><img src="./images/icon-ios.png" alt=""></li>
                 </ul>
 
-                <ul>
-                  <li><a href="#">Privacy Policy</a></li>
-                  <li><a href="#">Our Food</a></li>
-                  <li><a href="#">Terms and Conditions</a></li>
-                  <li><a href="#">Oppornities</a></li>
-                </ul>
+                <div class="footer_nav">
 
-                <ul>
-                  <li><a href="#">About Us</a></li>
-                  <li><a href="#">Careers</a></li>
-                  <li><a href="#">Menu</a></li>
-                  <li><a href="#">Family Activities</a></li>
-                </ul>
+                  <?php wp_nav_menu( array(
+                    'theme_location' => 'footer_menu',
+                  ))?>
+
+                </div>
+
+                <div class="footer_nav">
+
+                  <?php wp_nav_menu( array(
+                    'theme_location' => 'header_menu',
+                  ))?>
+
+                </div>
+                
               </div>
               <div class="footer__connect">
                   <p>Follow us on</p>
                   <ul class="flex">
-                    <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                  <?php if( have_rows('social_media', 'option') ): ?>
+                    <?php while( have_rows('social_media', 'option') ) : the_row(); ?>
+                        <li><a href="<?php the_sub_field('link'); ?>"><i class="<?php the_sub_field('icon'); ?>"></i></a></li>
+                    <?php endwhile; ?>
+                    <?php endif; ?>
                   </ul>
               </div>
           </div>

@@ -16,5 +16,50 @@ function mcdo_assets(){
 // Hook that will run this function    
 add_action('wp_enqueue_scripts', 'mcdo_assets');
 
+function blog_support(){
+    add_theme_support('post-thumbnails'); // add featured Image 
+    add_theme_support('menus'); // add menus
 
-add_theme_support('post-thumbnails');
+    register_nav_menu( 'header_menu', 'Header Menu'); // create a nav locations
+    register_nav_menu( 'footer_menu', 'Footer Menu');
+}
+
+add_action('after_setup_theme', 'blog_support');
+
+
+function careers_custom_post(){
+    $careers_label = array(
+        'name'     => __('Careers', 'textdomain'),
+        'singular_name' => __('Career', 'textdomain'),
+        'add_new'    => __('Add Career', 'textdomain'),
+        'edit_item'   => __('Edit Career', 'textdomain'),
+        'add_new_item' => __('Add New Career', 'textdomain'),
+        'all_items'   => __('Careers', 'textdomain'),
+    );
+
+    $careers_args = array(
+        'labels' => $careers_label,
+        'public' => true,
+        'capability_type' => 'post',
+        'show_ui' => true,
+        'supports' => array('title', 'editor','thumbnail', 'excerpt'),
+        'menu_icon' => 'dashicons-format-aside',
+    );
+
+    register_post_type('careers', $careers_args);
+
+}
+        
+add_action('init', 'careers_custom_post');
+
+if( function_exists('acf_add_options_page') ) {
+
+    acf_add_options_page(array(
+        'page_title'    => 'Theme General Settings',
+        'menu_title'    => 'Theme Settings',
+        'menu_slug'     => 'theme-general-settings',
+        'capability'    => 'edit_posts',
+        'redirect'      => false
+    ));
+    
+}

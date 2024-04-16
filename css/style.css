@@ -745,16 +745,22 @@
   .careers-video .dropdowns button {
     background-color: #f8f9fa;
     border-radius: 28px;
-    padding: 1rem 3rem;
+    padding: 1.5rem 2.5rem;
     border: none;
+    position: relative;
   }
   .careers-video .dropdowns button span {
     font-size: 20px;
     color: #555;
-    font-weight: bolder;
+    font-weight: 900;
     margin-right: 5rem;
+    font-family: "Speedee-bold";
+    margin-right: 7rem;
   }
   .careers-video .dropdowns button i {
+    position: absolute;
+    right: 3rem;
+    bottom: 1.4rem;
     color: #db0007;
     font-size: 30px;
   }
@@ -772,24 +778,63 @@
     color: white;
     font-size: 25px;
   }
+  
   .careers-location .location__wrapper .location {
     border-radius: 20px;
     max-width: 80rem;
     margin: 0 auto;
+    margin-bottom: 3rem;
   }
   .careers-location .location__wrapper .location .details {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    padding: 1.3rem 0;
+    padding: 3rem;
   }
   .careers-location .location__wrapper .location .details .apply {
-    background-color: white;
-    padding: 1.8rem 6rem;
-    text-align: center;
-    border-radius: 20px;
-  }
-  .careers-location .location__wrapper .location .details .apply a {
     color: black;
     font-weight: bolder;
-  }/*# sourceMappingURL=main.min.css.map */
+    display: block;
+    padding: 1.8rem 10rem;
+    font-size: 20px;
+    border-radius: 20px;
+    background-color: white;
+  }
+  
+  .header_nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+  }
+
+  .header_nav ul a {
+    font-size: 20px;
+    font-weight: bold;
+    color: red;
+  }
+
+
+  .footer_nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  .footer_nav ul a {
+    font-size: 14px;
+    color: black;
+  }
+
+  .pagination:where(a, span){
+    padding: 5px;
+    display: inline-block;
+    margin-right: 5px;
+    background: #d2d2d2;
+  }
+
+  .pagination .current {
+    background: #ffbc0d;
+  }
+  
+  /*# sourceMappingURL=main.min.css.map */
